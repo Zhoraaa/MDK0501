@@ -1,47 +1,13 @@
 <?php
 session_start();
-header("Refresh: 1");
-if (!isset($_SESSION['checked'])) {
-        $_SESSION['checked'] = time();
-        echo 'Вы впервые на этой странице';
-} else {
-        $time = time() - $_SESSION['checked'];
-        echo 'С вашего первого захода на страницу прошло ' . $time;
-        switch (substr(time() - $_SESSION['checked'], -1)) {
-                case 0:
-                        echo " секунд";
-                        break;
-                case 1:
-                        echo " секунда";
-                        break;
-                case 2:
-                        echo " секунды";
-                        break;
-                case 3:
-                        echo " секунды";
-                        break;
-                case 4:
-                        echo " секунды";
-                        break;
-                case 5:
-                        echo " секунд";
-                        break;
-                case 6:
-                        echo " секунд";
-                        break;
-                case 7:
-                        echo " секунд";
-                        break;
-                case 8:
-                        echo " секунд";
-                        break;
-                case 9:
-                        echo " секунд";
-                        break;
-        }
-        if ($time > 9): unset($_SESSION['checked']);endif;
-}
 
+if (!isset($_SESSION['counter'])) {
+        $_SESSION['counter'] = 1;
+} else {
+        $_SESSION['counter']++;
+}
+if ($_SESSION['counter'] == 10):unset($_SESSION['counter']);endif;
+echo $_SESSION['counter'];
 ?>
 <br>
 <a href="./logout.php"><button>destroy</button></a>

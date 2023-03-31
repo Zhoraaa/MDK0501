@@ -8,35 +8,17 @@ if (!isset($_SESSION['checked'])) {
         $time = time() - $_SESSION['checked'];
         echo 'С вашего первого захода на страницу прошло ' . $time;
         switch (substr(time() - $_SESSION['checked'], -1)) {
-                case 0:
+                case (0 || 4 || 5 || 6 || 7 || 8 || 9):
                         echo " секунд";
                         break;
                 case 1:
                         echo " секунда";
                         break;
-                case 2:
-                        echo " секунды";
-                        break;
-                case 3:
+                case (2 || 3):
                         echo " секунды";
                         break;
                 case 4:
                         echo " секунды";
-                        break;
-                case 5:
-                        echo " секунд";
-                        break;
-                case 6:
-                        echo " секунд";
-                        break;
-                case 7:
-                        echo " секунд";
-                        break;
-                case 8:
-                        echo " секунд";
-                        break;
-                case 9:
-                        echo " секунд";
                         break;
         }
 }
